@@ -1,0 +1,17 @@
+# Configuración local del harness / preview
+.claude/
+
+# Sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Logs y dependencias (por si se añaden en el futuro)
+node_modules/
+npm-debug.log*

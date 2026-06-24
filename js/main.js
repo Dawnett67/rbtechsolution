@@ -22,17 +22,20 @@ ScrollTrigger.create({
 /* ---------- Menú móvil ---------- */
 const toggle = document.getElementById("navToggle");
 const menu = document.getElementById("navMenu");
-toggle.addEventListener("click", () => {
-  const open = menu.classList.toggle("open");
+const backdrop = document.getElementById("navBackdrop");
+
+function setMenu(open) {
+  menu.classList.toggle("open", open);
+  backdrop.classList.toggle("open", open);
+  document.body.classList.toggle("menu-open", open);
   toggle.setAttribute("aria-expanded", open);
   toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-});
-menu.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    menu.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-  })
-);
+}
+
+toggle.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+backdrop.addEventListener("click", () => setMenu(false));
+menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
 /* ---------- Botones magnéticos ---------- */
 document.querySelectorAll(".magnetic").forEach((btn) => {

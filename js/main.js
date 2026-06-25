@@ -158,6 +158,40 @@ if (!reduced) {
       xPercent: -50, repeat: -1, duration: 22, ease: "none"
     });
   }
+
+  /* ----- CargaPy: entrada coreografiada + vida continua ----- */
+  if (document.querySelector(".cargapy")) {
+    // Estados iniciales (ocultos hasta entrar en pantalla)
+    gsap.set(".cargapy__tag, .cargapy__logo, .cargapy__title, .cargapy__lead, .cargapy__actions > *", { autoAlpha: 0, y: 40 });
+    gsap.set(".cargapy__features li", { autoAlpha: 0, x: -26 });
+    gsap.set(".cargapy__ico", { scale: 0 });
+    gsap.set(".cargapy .phone", { autoAlpha: 0, xPercent: 14, rotationY: 24, scale: 0.9, transformPerspective: 900, transformOrigin: "left center" });
+
+    // Timeline de entrada, disparada al hacer scroll a la sección
+    const cpTl = gsap.timeline({ scrollTrigger: { trigger: ".cargapy", start: "top 66%" } });
+    cpTl
+      .to(".cargapy__tag", { autoAlpha: 1, y: 0, duration: 0.6 })
+      .to(".cargapy__logo", { autoAlpha: 1, y: 0, duration: 0.7, ease: "back.out(1.6)" }, "-=0.3")
+      .to(".cargapy__title", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power4.out" }, "-=0.45")
+      .to(".cargapy__lead", { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.5")
+      .to(".cargapy__features li", { autoAlpha: 1, x: 0, duration: 0.5, stagger: 0.12 }, "-=0.3")
+      .to(".cargapy__ico", { scale: 1, duration: 0.5, stagger: 0.12, ease: "back.out(2)" }, "<")
+      .to(".cargapy__actions > *", { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.15 }, "-=0.2")
+      .to(".cargapy .phone", { autoAlpha: 1, xPercent: 0, rotationY: 0, scale: 1, duration: 1.1, ease: "power3.out" }, "-=1.3");
+
+    // Flotación continua del teléfono (vida) — sobre .phone
+    gsap.to(".cargapy .phone", { y: -14, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.3 });
+
+    // Parallax al hacer scroll — sobre el contenedor (no choca con la flotación)
+    gsap.to(".cargapy__media", {
+      yPercent: -12, ease: "none",
+      scrollTrigger: { trigger: ".cargapy", start: "top bottom", end: "bottom top", scrub: 1 }
+    });
+    gsap.to(".orb--gold", {
+      yPercent: 35, ease: "none",
+      scrollTrigger: { trigger: ".cargapy", start: "top bottom", end: "bottom top", scrub: 1.5 }
+    });
+  }
 } else {
   /* Sin animación: aseguramos visibilidad */
   gsap.set("[data-reveal], [data-card], [data-step], [data-chip]", { autoAlpha: 1, y: 0, scale: 1 });

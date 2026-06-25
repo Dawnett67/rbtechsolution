@@ -390,7 +390,7 @@ em { font-style: normal; color: var(--blue); }
   background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #fff;
   transition: transform .3s var(--ease), background .3s, border-color .3s, color .3s;
 }
-.footer__nav .social-ico, .footer__nav .social-ico:hover { padding: 0; }
+.footer__nav .social-ico, .footer__nav .social-ico:hover { padding: 0; display: grid; place-items: center; }
 .social-ico:hover { transform: translateY(-4px); }
 .social-ico svg { width: 20px; height: 20px; }
 .social-ico--ig:hover { background: linear-gradient(45deg, #f09433, #e6683c 30%, #dc2743 50%, #cc2366 75%, #bc1888); border-color: transparent; color: #fff; }

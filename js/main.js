@@ -187,7 +187,7 @@ form.addEventListener("submit", (e) => {
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
   hint.style.color = "";
-  hint.textContent = "Abriendo tu correo para enviar la propuesta… 🚀";
+  hint.textContent = "Abriendo tu correo para enviar la propuesta…";
   form.reset();
   gsap.fromTo(hint, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5 });
 });

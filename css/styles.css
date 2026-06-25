@@ -296,8 +296,9 @@ em { font-style: normal; color: var(--blue); }
 .cargapy__lead strong { color: #fff; }
 .cargapy__features { display: grid; gap: .75rem; margin-bottom: 2rem; }
 .cargapy__features li { display: flex; align-items: center; gap: .75rem; font-size: .98rem; color: rgba(255,255,255,.85); }
-.cargapy__features li span { flex: none; width: 34px; height: 34px; display: grid; place-items: center;
-  background: rgba(245,168,0,.14); border: 1px solid rgba(245,168,0,.3); border-radius: 9px; font-size: 1rem; }
+.cargapy__ico { flex: none; width: 36px; height: 36px; display: grid; place-items: center;
+  background: rgba(245,168,0,.12); border: 1px solid rgba(245,168,0,.3); border-radius: 9px; }
+.cargapy__ico svg { width: 19px; height: 19px; fill: none; stroke: #ffc24d; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .cargapy__actions { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
 .cargapy__btn {
   background: linear-gradient(135deg, #ffb524, #f59300); color: #1a1206;
@@ -306,20 +307,31 @@ em { font-style: normal; color: var(--blue); }
 .cargapy__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(245,168,0,.9); }
 .cargapy__btn svg { transition: transform .3s var(--ease); }
 .cargapy__btn:hover svg { transform: translate(2px, -2px); }
-.cargapy__link { font-family: var(--font-head); font-weight: 600; color: #ffc24d; border-bottom: 1px solid transparent; transition: border-color .3s; }
-.cargapy__link:hover { border-color: #ffc24d; }
+/* Botón Google Play */
+.cargapy__play {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: .6rem 1.3rem; border-radius: var(--radius);
+  background: #000; border: 1px solid rgba(255,255,255,.25); color: #fff;
+  transition: border-color .3s, transform .3s, background .3s;
+}
+.cargapy__play:hover { transform: translateY(-2px); border-color: #ffc24d; background: #0a0a0a; }
+.cargapy__play-ico { width: 22px; height: 22px; flex: none; color: #ffb524; }
+.cargapy__play-txt { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+.cargapy__play-txt small { font-size: .62rem; text-transform: uppercase; letter-spacing: .5px; color: rgba(255,255,255,.7); }
+.cargapy__play-txt strong { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; }
 
 /* Marco de teléfono con el video vertical */
 .cargapy__media { display: flex; justify-content: center; }
 .phone {
-  position: relative; width: min(300px, 78vw); aspect-ratio: 9 / 19.5;
+  position: relative; width: min(300px, 78vw);
   background: #0a0a0a; border-radius: 38px; padding: 10px;
   border: 2px solid rgba(255,255,255,.12);
   box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 6px rgba(255,255,255,.03);
 }
-.phone__notch { position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
-  width: 110px; height: 22px; background: #0a0a0a; border-radius: 0 0 14px 14px; z-index: 3; }
-.phone__video { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; display: block; background: #000; }
+.phone__notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 90px; height: 18px; background: #0a0a0a; border-radius: 0 0 12px 12px; z-index: 3; }
+/* El video es 9:16; el área respeta esa proporción para no recortar los lados */
+.phone__video { width: 100%; aspect-ratio: 9 / 16; height: auto; object-fit: cover; border-radius: 30px; display: block; background: #000; }
 .phone__sound {
   position: absolute; right: 16px; bottom: 16px; z-index: 4;
   width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;

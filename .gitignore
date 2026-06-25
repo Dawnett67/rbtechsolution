@@ -15,3 +15,6 @@ Desktop.ini
 # Logs y dependencias (por si se añaden en el futuro)
 node_modules/
 npm-debug.log*
+
+# Video original sin comprimir (63MB) — se usa la versión optimizada cargapy.mp4
+assets/video cargapy.mp4

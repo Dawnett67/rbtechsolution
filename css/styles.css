@@ -271,6 +271,65 @@ em { font-style: normal; color: var(--blue); }
 }
 .tech-chip:hover { transform: translateY(-5px) scale(1.03); color: var(--blue); border-color: var(--blue); box-shadow: var(--shadow); }
 
+/* ---------- CargaPy (producto destacado) ---------- */
+.cargapy {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(900px 500px at 85% 10%, rgba(245, 168, 0, .14), transparent 60%),
+    linear-gradient(160deg, #001324, #002a4d);
+  color: #fff;
+}
+.cargapy__bg { position: absolute; inset: 0; pointer-events: none; }
+.orb--gold { position: absolute; width: 420px; height: 420px; bottom: -140px; left: -120px;
+  border-radius: 50%; filter: blur(80px); opacity: .35;
+  background: radial-gradient(circle, rgba(245,168,0,.7), transparent 70%); }
+.cargapy__inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 3.5rem; align-items: center;
+}
+.cargapy__tag { color: #ffc24d; }
+.cargapy__logo { width: 150px; height: auto; margin: .5rem 0 1.4rem;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,.45)); }
+.cargapy__title { color: #fff; }
+.cargapy__title em { color: #ffb524; }
+.cargapy__lead { margin: 1.2rem 0 1.6rem; font-size: 1.1rem; color: rgba(255,255,255,.82); max-width: 34rem; }
+.cargapy__lead strong { color: #fff; }
+.cargapy__features { display: grid; gap: .75rem; margin-bottom: 2rem; }
+.cargapy__features li { display: flex; align-items: center; gap: .75rem; font-size: .98rem; color: rgba(255,255,255,.85); }
+.cargapy__features li span { flex: none; width: 34px; height: 34px; display: grid; place-items: center;
+  background: rgba(245,168,0,.14); border: 1px solid rgba(245,168,0,.3); border-radius: 9px; font-size: 1rem; }
+.cargapy__actions { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.cargapy__btn {
+  background: linear-gradient(135deg, #ffb524, #f59300); color: #1a1206;
+  box-shadow: 0 14px 34px -12px rgba(245,168,0,.8);
+}
+.cargapy__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(245,168,0,.9); }
+.cargapy__btn svg { transition: transform .3s var(--ease); }
+.cargapy__btn:hover svg { transform: translate(2px, -2px); }
+.cargapy__link { font-family: var(--font-head); font-weight: 600; color: #ffc24d; border-bottom: 1px solid transparent; transition: border-color .3s; }
+.cargapy__link:hover { border-color: #ffc24d; }
+
+/* Marco de teléfono con el video vertical */
+.cargapy__media { display: flex; justify-content: center; }
+.phone {
+  position: relative; width: min(300px, 78vw); aspect-ratio: 9 / 19.5;
+  background: #0a0a0a; border-radius: 38px; padding: 10px;
+  border: 2px solid rgba(255,255,255,.12);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 6px rgba(255,255,255,.03);
+}
+.phone__notch { position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 22px; background: #0a0a0a; border-radius: 0 0 14px 14px; z-index: 3; }
+.phone__video { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; display: block; background: #000; }
+.phone__sound {
+  position: absolute; right: 16px; bottom: 16px; z-index: 4;
+  width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
+  display: grid; place-items: center; transition: background .3s, transform .3s;
+}
+.phone__sound:hover { background: rgba(245,168,0,.85); transform: scale(1.08); }
+.phone__sound svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
+.phone__sound.is-on svg line { display: none; }
+
 /* ---------- Nosotros / Valores ---------- */
 .values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 .value {
@@ -328,6 +387,11 @@ em { font-style: normal; color: var(--blue); }
   .timeline { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
   .timeline__line { display: none; }
   .tecnologias__inner { grid-template-columns: 1fr; }
+  .cargapy__inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .cargapy__features { text-align: left; max-width: 30rem; margin-inline: auto; }
+  .cargapy__features li { justify-content: flex-start; }
+  .cargapy__actions { justify-content: center; }
+  .cargapy__media { order: -1; }
   .footer__inner { grid-template-columns: 1fr; }
 }
 

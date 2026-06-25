@@ -192,5 +192,31 @@ form.addEventListener("submit", (e) => {
   gsap.fromTo(hint, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5 });
 });
 
+/* ============================================================
+   Video CargaPy: reproduce al entrar en pantalla + control de sonido
+   ============================================================ */
+const cargapyVideo = document.getElementById("cargapyVideo");
+const soundBtn = document.getElementById("cargapySound");
+if (cargapyVideo) {
+  // Reproduce (silenciado) solo cuando es visible; pausa al salir (ahorra recursos)
+  ScrollTrigger.create({
+    trigger: cargapyVideo,
+    start: "top 85%",
+    end: "bottom 15%",
+    onEnter: () => cargapyVideo.play().catch(() => {}),
+    onEnterBack: () => cargapyVideo.play().catch(() => {}),
+    onLeave: () => cargapyVideo.pause(),
+    onLeaveBack: () => cargapyVideo.pause()
+  });
+
+  // Botón para activar/silenciar el audio
+  soundBtn.addEventListener("click", () => {
+    cargapyVideo.muted = !cargapyVideo.muted;
+    soundBtn.classList.toggle("is-on", !cargapyVideo.muted);
+    soundBtn.setAttribute("aria-label", cargapyVideo.muted ? "Activar sonido" : "Silenciar");
+    if (!cargapyVideo.muted) cargapyVideo.play().catch(() => {});
+  });
+}
+
 /* Recalcular posiciones cuando carguen las fuentes/imágenes */
 window.addEventListener("load", () => ScrollTrigger.refresh());

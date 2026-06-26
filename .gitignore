@@ -18,3 +18,10 @@ npm-debug.log*
 
 # Video original sin comprimir (63MB) — se usa la versión optimizada cargapy.mp4
 assets/video cargapy.mp4
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

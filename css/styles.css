@@ -382,7 +382,7 @@ em { font-style: normal; color: var(--blue); }
 .footer__brand p { max-width: 22rem; font-size: .95rem; }
 .footer__nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .footer__nav h4 { color: var(--white); font-size: .95rem; margin-bottom: 1rem; }
-.footer__nav a { display: block; padding: .35rem 0; font-size: .92rem; transition: color .25s, padding-left .25s; }
+.footer__nav a { display: block; padding: .35rem 0; font-size: .92rem; overflow-wrap: anywhere; transition: color .25s, padding-left .25s; }
 .footer__nav a:hover { color: var(--blue-bright); padding-left: 5px; }
 .footer__social { display: flex; gap: .75rem; margin-top: .3rem; }
 .social-ico {
@@ -451,6 +451,7 @@ em { font-style: normal; color: var(--blue); }
   .cards { grid-template-columns: 1fr; }
   .values { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer__nav { grid-template-columns: 1fr 1fr; gap: 1.8rem 1.2rem; }
   .footer__bottom { flex-direction: column; }
 }
 

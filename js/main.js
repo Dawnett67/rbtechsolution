@@ -68,7 +68,9 @@ const mm = gsap.matchMedia();
 
 mm.add(
   {
-    isDesktop: "(min-width: 981px)",
+    // motionOK cubre móvil y escritorio (default del navegador) para que el hero
+    // se anime en todos los tamaños; reduceMotion desactiva el movimiento.
+    motionOK: "(prefers-reduced-motion: no-preference)",
     reduceMotion: "(prefers-reduced-motion: reduce)"
   },
   (ctx) => {
